@@ -37,3 +37,7 @@ Route::get('/productos/{id?}','API\ProductosController@showProductos')->where("i
 Route::post("/productos/{id?}",'API\ProductosController@saveProductos');
 Route::put('/productos/{id?}','API\ProductosController@editProductos')->where("id","[0-9]+");
 Route::delete('/productos/{id?}','API\ProductosController@deleteProductos')->where("id","[0-9]+");
+
+
+//Route::post('edad',['middleware'=>'checar.edad','API\verifyAge@verifyAge']);
+Route::post('edad','API\verifyAge@verifyAge')->middleware('checar.edad');

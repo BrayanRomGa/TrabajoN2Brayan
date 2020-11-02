@@ -24,6 +24,7 @@ class personasSeeder extends Seeder
                 DB::table('personas')->insert(array(
                     'nombre'=>$faker->name,
                     'apellido'=>$faker->lastName,
+                    'edad'=>$faker->numberBetween($min=1,$max=100),
                     'nomUsuario'=>$faker->unique()->userName,
                     'contrasena'=>'12345'
                 ));

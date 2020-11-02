@@ -13,6 +13,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+            //middleware global
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
@@ -28,6 +29,8 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+
+        //middleware en grupos
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -42,6 +45,8 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            //el checar edad se aplicara a toda la ruta api
+            'checar.edad'
         ],
     ];
 
@@ -63,5 +68,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        
+        //checar la edad en una ruta especifica
+        'checar.edad'=> \App\Http\Middleware\verifyAge::class,
     ];
 }
