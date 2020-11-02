@@ -46,7 +46,7 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             //el checar edad se aplicara a toda la ruta api
-            'checar.edad'
+            //'checar.edad'
         ],
     ];
 

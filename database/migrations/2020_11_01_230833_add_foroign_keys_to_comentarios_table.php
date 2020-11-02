@@ -16,12 +16,14 @@ class AddForoignKeysToComentariosTable extends Migration
         Schema::table('comentarios', function (Blueprint $table) {
             $table->unsignedBigInteger('id_persona');
             $table->unsignedBigInteger('id_producto');
-
-            //              id interno              id de la tabla a referenciar
-            $table->foreign('id_persona')->references('id')->on('personas');
-            $table->foreign('id_producto')->references('id')->on('productos');
-
             
+            $table->foreign('id_persona')->references('id')->on('personas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_producto')->references('id')->on('productos')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
@@ -33,7 +35,14 @@ class AddForoignKeysToComentariosTable extends Migration
     public function down()
     {
         Schema::table('comentarios', function (Blueprint $table) {
-            //
+            $table->dropForeign('id_producto');
+            $table->dropForeign('id_persona');
+
+            $table->dropColumn('id_persona');
+            $table->dropColumn('id_producto');
+
+
+
         });
     }
 }

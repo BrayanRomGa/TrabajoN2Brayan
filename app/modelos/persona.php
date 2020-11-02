@@ -9,6 +9,6 @@ class persona extends Model
     protected $table ='personas';
 
     public function comentarios(){
-        return $this->hasMany('App\comentario');
+        return $this->hasMany(comentario::class);
     }
 }

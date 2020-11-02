@@ -16,7 +16,6 @@ class AddEdadToPersonasTable extends Migration
         Schema::table('personas', function (Blueprint $table) {
             $table->integer('edad')
             ->after('apellido');
-
         });
     }
 

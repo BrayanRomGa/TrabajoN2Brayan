@@ -13,7 +13,7 @@ class comentariosSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i < 20; $i++) { 
+        for ($i=0; $i < 10; $i++) { 
             DB::table('comentarios')->insert(array(
                 'comentario'=>$faker->text($maxNbChars=30),
                 'id_persona'=>$faker->numberBetween($min=1,$max=20),

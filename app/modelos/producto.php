@@ -9,6 +9,6 @@ class producto extends Model
     protected $table ='productos';
 
     public function comentarios(){
-        return $this->hasMany('App\comentario');
+        return $this->hasMany(comentario::class);
     }
 }

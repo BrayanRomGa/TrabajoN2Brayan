@@ -20,7 +20,7 @@ class personasSeeder extends Seeder
             //$personas->save();
     
             $faker = Faker::create();
-            for ($i=0; $i < 20; $i++) { 
+            for ($i=0; $i < 30; $i++) { 
                 DB::table('personas')->insert(array(
                     'nombre'=>$faker->name,
                     'apellido'=>$faker->lastName,

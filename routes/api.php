@@ -40,4 +40,4 @@ Route::delete('/productos/{id?}','API\ProductosController@deleteProductos')->whe
 
 
 //Route::post('edad',['middleware'=>'checar.edad','API\verifyAge@verifyAge']);
-Route::post('edad','API\verifyAge@verifyAge')->middleware('checar.edad');
+Route::post('edad','API\verifyAge@verifyAge')->middleware('checar.edad'); //las 2 diferentes formas de llamar al middleware

@@ -21,7 +21,7 @@ class PersonasController extends Controller
         $guardpersonas->contrasena=$request->contrasena;
 
         if($guardpersonas->save())
-        return response()->json(["Personas"=>$guardpersonas],201);
+            return response()->json(["Personas"=>$guardpersonas],201);
         return response()->json(null,400);
     }
 

@@ -13,7 +13,7 @@ class productosSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i < 20; $i++) { 
+        for ($i=0; $i < 30; $i++) { 
             DB::table('productos')->insert(array(
                 'nombreProducto'=>$faker->userName,
                 'precio'=>$faker->randomFloat($nbMaxDecimals=2,$min=0.1,$max=1000)

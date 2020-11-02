@@ -18,7 +18,7 @@ class ProductosController extends Controller
         $guardproductos->precio=$request->precio;
 
         if($guardproductos->save())
-        return response()->json(["Productos"=>$guardproductos],201);
+            return response()->json(["Productos"=>$guardproductos],201);
         return response()->json(null,400);
     }
     public function editProductos(Request $request, $id){
@@ -33,6 +33,7 @@ class ProductosController extends Controller
         return response()->json([null,400]);
     }
     public function deleteProductos($id=null){
+        $guardproductos=new producto();             //linea agregada de prueba
         $guardproductos=producto::find($id);
         if($guardproductos->delete())
             return response()->json(["Productos"=>producto::all()],200);

@@ -9,10 +9,10 @@ class comentario extends Model
     protected $table ='comentarios';
  
     public function persona(){//cuaderno
-        return $this->belongsTo('App\persona');
+        return $this->belongsTo(persona::class);
     }
 
     public function producto(){
-        return $this->belongsTo('App\producto');
+        return $this->belongsTo(producto::class);
     }
 }

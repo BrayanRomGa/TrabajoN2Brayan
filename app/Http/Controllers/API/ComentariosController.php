@@ -37,9 +37,10 @@ class ComentariosController extends Controller
         return response()->json([null,400]);
     }
     public function deleteComentarios($id=null){
+        $guardComentarios=new comentario();     //linea agregada de prueba
         $guardComentarios=comentario::find($id);
         if($guardComentarios->delete())
-            return response()->json(["Comentario"=>comentario::all()],200);
+            return response()->json(["Comentario"=>comentario::all()],201);
         return response()->json([null,400]);
     }
 
