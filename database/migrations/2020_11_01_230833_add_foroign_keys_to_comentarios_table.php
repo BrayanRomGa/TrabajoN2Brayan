@@ -14,9 +14,11 @@ class AddForoignKeysToComentariosTable extends Migration
     public function up()
     {
         Schema::table('comentarios', function (Blueprint $table) {
+                    //campos que se van a agregar a la tabla comentarios
             $table->unsignedBigInteger('id_persona');
             $table->unsignedBigInteger('id_producto');
             
+                            //referencia origen      destino    tablaDestino
             $table->foreign('id_persona')->references('id')->on('personas')
             ->onDelete('cascade')
             ->onUpdate('cascade');

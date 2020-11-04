@@ -17,6 +17,7 @@ class PersonasController extends Controller
         $guardpersonas=new persona();
         $guardpersonas->nombre=$request->nombre;
         $guardpersonas->apellido=$request->apellido;
+        $guardpersonas->edad=$request->edad;
         $guardpersonas->nomUsuario=$request->nomUsuario;
         $guardpersonas->contrasena=$request->contrasena;
 

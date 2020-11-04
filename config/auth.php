@@ -40,11 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
+ 
         'api' => [
-            'driver' => 'token',
+            'driver' => 'sanctum',         //se modifica para que funcione
             'provider' => 'users',
-            'hash' => false,
+            'hash' => true,
         ],
     ],
 

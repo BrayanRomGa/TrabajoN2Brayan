@@ -20,14 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
                             //COMENTARIOS
 Route::get('/comentarios/{id?}','API\ComentariosController@ShowComentarios')->where("id","[0-9]+");
+
+
 Route::post('/comentarios/{id?}','API\ComentariosController@saveComentarios');
 Route::put('/comentarios/{id?}','API\ComentariosController@editComentarios')->where("id","[0-9]+");
 Route::delete('/comentarios/{id?}','API\ComentariosController@deleteComentarios')->where("id","[0-9]+");
 
 
                             //PERSONAS
-Route::get("/personas/{id?}","API\PersonasController@showPersonas")->where("id","[0-9]+");  //no funciona de esta manera
-Route::post("/personas/{id?}",'API\PersonasController@savePersonas');
+Route::get("/personas/{id?}","API\PersonasController@showPersonas")->where("id","[0-9]+");
+Route::post("/personas/{id?}",'API\PersonasController@savePersonas')->middleware('checar.edad');// solo se aplucara en esta rama al registrarse
 Route::put("/personas/{id?}",'API\PersonasController@editPersonas')->where("id","[0-9]+");
 Route::delete("/personas/{id?}",'API\PersonasController@deletePersonas')->where("id","[0-9]+");
 
@@ -39,5 +41,20 @@ Route::put('/productos/{id?}','API\ProductosController@editProductos')->where("i
 Route::delete('/productos/{id?}','API\ProductosController@deleteProductos')->where("id","[0-9]+");
 
 
+                            //prueba edad
 //Route::post('edad',['middleware'=>'checar.edad','API\verifyAge@verifyAge']);
-Route::post('edad','API\verifyAge@verifyAge')->middleware('checar.edad'); //las 2 diferentes formas de llamar al middleware
+                        //ruta normal      //aqui se aplica el middleware
+Route::post('/edad','API\verifyAge@verifyAge')->middleware('checar.edad'); 
+//las 2 diferentes formas de llamar al middleware
+
+
+//middleware con token
+Route::middleware('auth:sanctum')->get('admon','Auth\AuthController@admon');
+Route::middleware('auth:sanctum')->post('admonUsuNew','Auth\AuthController@admonUsuNew');
+
+Route::middleware('auth:sanctum')->get('user','Auth\AuthController@user');
+
+Route::middleware('auth:sanctum')->delete('logOut','Auth\AuthController@logOut');
+//prueba token
+Route::post('/registro','Auth\AuthController@registro')->middleware('checar.edad'); 
+Route::post('/logIn','Auth\AuthController@logIn');
