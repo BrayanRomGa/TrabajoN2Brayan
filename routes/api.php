@@ -58,3 +58,7 @@ Route::middleware('auth:sanctum')->delete('logOut','Auth\AuthController@logOut')
 //prueba token
 Route::post('/registro','Auth\AuthController@registro')->middleware('checar.edad'); 
 Route::post('/logIn','Auth\AuthController@logIn');
+
+//control basico de archivos
+Route::post('/files','API\FilesController@SaveFile');//SendEmail
+Route::post('/email','API\FilesController@SendEmail');//SendEmail

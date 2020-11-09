@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validatos;
+use Illuminate\Support\Facades\Storage;
 class AuthController extends Controller
 {
     //informacion siendo admon
